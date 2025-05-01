@@ -1,0 +1,137 @@
+[
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9da5"
+    },
+    "title": "Koldair Water Dispenser Cold And Hot 2 Tabs - Bottom Load KWDB Silver Cooler",
+    "price": 10499,
+    "category": "Appliances",
+    "brand": "Koldair"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9da6"
+    },
+    "title": "Fresh Jumbo Stainless Steel Potato CB90",
+    "price": 10525,
+    "category": "Appliances",
+    "brand": "Fresh"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9da7"
+    },
+    "title": "Midea Refrigerator 449L 2D TMF MDRT645MTE06E Inverter Quattro, No Frost, Cooling Box, Multi-Air Flow, Active-C Fresh, Humidity Control Silver",
+    "price": 26999,
+    "category": "Appliances",
+    "brand": "Midea"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9da8"
+    },
+    "title": "Zanussi Automatic Washing Machine, Silver, 8 KG - ZWF8240SX5r",
+    "price": 17023,
+    "category": "Appliances",
+    "brand": "Zanussi"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9da9"
+    },
+    "title": "Midea Dishwasher - WQP13-5201C-S - 6 programs - Free standing - 13 Place set - Silver",
+    "price": 15699,
+    "category": "Appliances",
+    "brand": "Midea"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9daa"
+    },
+    "title": "deime Air Fryer 6.2 Quart, Large Air Fryer for Families, 5 Cooking Functions AirFryer, 400°F Temp Controls in 5° Increments, Ceramic Coated Nonstick",
+    "price": 3629,
+    "category": "Appliances",
+    "brand": "deime"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9dab"
+    },
+    "title": "Black & Decker DCM25N-B5 Coffee Maker, Black - 1 Cup",
+    "price": 930,
+    "category": "Appliances",
+    "brand": "Black & Decker"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9dac"
+    },
+    "title": "Black & Decker 1050W 2-Slice Stainless Steel Toaster, Silver/Black",
+    "price": 2540,
+    "category": "Appliances",
+    "brand": "Black & Decker"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9dad"
+    },
+    "title": "Panasonic Powerful Steam/Dry Iron, 1800W, NI-M300TVTD- 1 Year Warranty",
+    "price": 10499,
+    "category": "Appliances",
+    "brand": "Panasonic"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9dae"
+    },
+    "title": "Fresh 1600W Faster Vacuum Cleaner with Bag, Black",
+    "price": 2830,
+    "category": "Appliances",
+    "brand": "Fresh"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9daf"
+    },
+    "title": "Fresh Wall fan 50 watts 18 inches with charger with 3 blades, black and white",
+    "price": 3983,
+    "category": "Appliances",
+    "brand": "Fresh"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9db0"
+    },
+    "title": "TORNADO Gas Water Heater 6 Liter, Digital, Natural Gas, Silver GHM-C06CNE-S",
+    "price": 3719,
+    "category": "Appliances",
+    "brand": "Tornado"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9db1"
+    },
+    "title": "Black & Decker 500W 1.5L Blender with Grinder Mill, White - BX520-B5",
+    "price": 1299,
+    "category": "Appliances",
+    "brand": "Black & Decker"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9db2"
+    },
+    "title": "Black & Decker 1.7L Concealed Coil Stainless Steel Kettle, Jc450-B5, Silver",
+    "price": 1594,
+    "category": "Appliances",
+    "brand": "Black & Decker"
+  },
+  {
+    "_id": {
+      "$oid": "68132a95ff7813b3d47f9db3"
+    },
+    "title": "BLACK & DECKER Dough Mixer With 1000W 3-Blade Motor And 4L Stainless Steel Mixer For 600G Dough Mixer 5.76 Kilograms White/Sliver",
+    "price": 6799,
+    "category": "Appliances",
+    "brand": "Black & Decker"
+  }
+]
