@@ -1,6 +1,6 @@
-const asyncHandler = require('express-async-handler');
-const ApiError = require('../utils/apiError');
-const ApiFeatures = require('../utils/apiFeatures');
+const asyncHandler = require("express-async-handler");
+const ApiError = require("../utils/apiError");
+const ApiFeatures = require("../utils/apiFeatures");
 
 exports.deleteOne = (Model) =>
   asyncHandler(async (req, res, next) => {
@@ -26,7 +26,7 @@ exports.updateOne = (Model) =>
         new ApiError(`No document for this id ${req.params.id}`, 404)
       );
     }
-    // Trigger "save" event when update document 
+    // Trigger "save" event when update document
     document.save();
     res.status(200).json({ data: document });
   });
@@ -42,12 +42,12 @@ exports.getOne = (Model, populationOpt) =>
     const { id } = req.params;
     //1- Build query
     let query = Model.findById(id);
-    if(populationOpt) {
-    query = query.populate(populationOpt);
+    if (populationOpt) {
+      query = query.populate(populationOpt);
     }
 
     //2- Execute query
-const document = await query;
+    const document = await query;
 
     if (!document) {
       return next(new ApiError(`No document for this id ${id}`, 404));
@@ -55,26 +55,26 @@ const document = await query;
     res.status(200).json({ data: document });
   });
 
-exports.getAll = (Model, modelName = '') =>
-  asyncHandler(async (req, res) => {
-    let filter = {};
-    if (req.filterObj) {
-      filter = req.filterObj;
-    }
-    // Build query
-    const documentsCounts = await Model.countDocuments();
-    const apiFeatures = new ApiFeatures(Model.find(filter), req.query)
-      .paginate(documentsCounts)
-      .filter()
+exports.getAll = (Model, modelName) => async (req, res, next) => {
+  try {
+    const countDocuments = await Model.countDocuments();
+    let features = new ApiFeatures(Model.find(), req.query)
       .search(modelName)
+      .filter()
+      .sort()
       .limitFields()
-      .sort();
-
-    // Execute query
-    const { mongooseQuery, paginationResult } = apiFeatures;
-    const documents = await mongooseQuery;
-
-    res
-      .status(200)
-      .json({ results: documents.length, paginationResult, data: documents });
-  });
+      .paginate(countDocuments);
+    console.log("Final MongoDB query:", features.mongooseQuery.getQuery());
+    const docs = await features.mongooseQuery;
+    res.status(200).json({
+      status: "success",
+      results: docs.length,
+      data: docs,
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: err.message,
+    });
+  }
+};
