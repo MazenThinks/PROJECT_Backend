@@ -1,0 +1,137 @@
+[
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613be"
+    },
+    "title": "Samsung Galaxy Tab A9 4G LTE, 8.7 Inch Android Tablet, 8GB RAM, 128GB Storage, 8MP Rear Camera, Navy-1 Year Warranty/Local Version",
+    "price": 9399,
+    "category": "Electronics",
+    "brand": "SAMSUNG"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613bf"
+    },
+    "title": "Xiaomi Redmi Pad SE WiFi FHD+ 90HZ refresh rate, Snapdragon 680 CPU, 8GB Ram+256GB ROM, Quad Speakers with Dolby Atmos, 8000mAh Bluetooth 5.3 8MP + Graphite Gray |1 year manufacturer warranty",
+    "price": 9888,
+    "category": "Electronics",
+    "brand": "Xiaomi"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613c0"
+    },
+    "title": "Apple iPhone 16 (128 GB)",
+    "price": 53550,
+    "category": "Electronics",
+    "brand": "Apple"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613c1"
+    },
+    "title": "CANSHN Magnetic for iPhone 16 Pro Max Case Clear, Upgraded [Full Camera Protection] [Compatible with Magsafe] Non-Yellowing Protective Shockproof Bumper - Clear",
+    "price": 110,
+    "category": "Electronics",
+    "brand": "CANSHN"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613c2"
+    },
+    "title": "USB Cooling Pad Stand Fan Cooler for Laptop Notebook",
+    "price": 377,
+    "category": "Electronics",
+    "brand": "Generic"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613c3"
+    },
+    "title": "Oraimo 18W USB Type-C Dual Output Super Fast Charger Wall Adapter QC3.0& PD3.0 & PE2.0 Compatible for iPhone 15/15 Plus/15 Pro/15 Pro Max, 14/13/12 Series, Galaxy, Pixel 4/3, iPad and More",
+    "price": 199,
+    "category": "Electronics",
+    "brand": "Oraimo"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613c4"
+    },
+    "title": "Samsung 55 Inch QLED Smart TV Neural HDR Quantum Processor Lite 4K - QA55QE1DAUXEG [2024 Model]",
+    "price": 23499,
+    "category": "Electronics",
+    "brand": "SAMSUNG"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613c5"
+    },
+    "title": "Xiaomi TV A 43 2025, 43, FHD, HDR, Cinematic Smart TV, 43-Inch Screen Size Google Assistant platform built-in receiver and Chromecast, metal finish Dolby Atoms 2 years local warranty",
+    "price": 9999,
+    "category": "Electronics",
+    "brand": "Xiaomi"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613c6"
+    },
+    "title": "Samsung 50 Inch TV Crystal Processor 4K LED - Titan Gray - UA50DU8000UXEG [2024 Model]",
+    "price": 19199,
+    "category": "Electronics",
+    "brand": "SAMSUNG"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613c7"
+    },
+    "title": "SHARP 4K Smart Frameless TV 55 Inch Built-In Receiver 4T-C55FL6EX",
+    "price": 17849,
+    "category": "Electronics",
+    "brand": "Sharp"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613c8"
+    },
+    "title": "LG UHD 4K TV 60 Inch UQ7900 Series, Cinema Screen Design 4K Active HDR WebOS Smart AI ThinQ - 60UQ79006LD (New)",
+    "price": 18849,
+    "category": "Electronics",
+    "brand": "LG"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613c9"
+    },
+    "title": "LENOVO ideapad slim3 15IRH8 -I5-13420H 8G-512SSD 83EM007LPS GREY",
+    "price": 22999,
+    "category": "Electronics",
+    "brand": "Lenovo"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613ca"
+    },
+    "title": "Lenovo Legion 5 15ACH6 Gaming Laptop - Ryzen 5-5600H, 16 GB RAM, 512 GB SSD, NVIDIA GeForce RTX 3050 Ti 4GB GDDR6 Graphics, 15.6 FHD (1920x1080) IPS 120Hz, Backlit Keyboard, WIN 11",
+    "price": 38749,
+    "category": "Electronics",
+    "brand": "Lenovo"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613cb"
+    },
+    "title": "HP Victus Gaming Laptop 15-fb1004ne, CPU: Ryzen 5-7535HS, 16GB RAM,512GB SSD, Graphics Card: NVIDIA GeForce RTX 2050, VRAM: 4GB, Display: 15.6 FHD Antiglare IPS 250 nits 144Hz, Windows 11",
+    "price": 29999,
+    "category": "Electronics",
+    "brand": "HP"
+  },
+  {
+    "_id": {
+      "$oid": "6819e22b123a4faad16613cc"
+    },
+    "title": "HP OfficeJet Pro 9720 Wide Format All-in-One Printer - Print, Scan, Copy,Wireless, Auto Document Feeder, Auto Duplex, Touchscreen, Quiet Mode; Input Capacity of up to 250 sheets - [53N94C]",
+    "price": 7999,
+    "category": "Electronics",
+    "brand": "HP"
+  }
+]
