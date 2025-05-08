@@ -18,16 +18,21 @@ const {
   uploadProductImages,
   resizeProductImages,
 } = require("../services/productService");
+
 const authService = require("../services/authService");
 const reviewsRoute = require("./reviewRoute");
 
+const { searchProductsAI } = require("../controllers/productController");
+
 const router = express.Router();
 
-// POST /products/smnfkdsjnfbkenflk/reviews
-// GET /products/smnfkdsjnfbkenflk/reviews
-// GET /products/smnfkdsjnfbkenflk/reviews/ksjdndkmnvkdm
+// 💬 اول حاجة: Route بتاع البحث بالذكاء الاصطناعي
+router.post("/search", searchProductsAI);
+
+// 💬 Sub-Routes: Reviews
 router.use("/:productId/reviews", reviewsRoute);
 
+// 💬 CRUD routes
 router
   .route("/")
   .get(factory.getAll(Product, "Products"))

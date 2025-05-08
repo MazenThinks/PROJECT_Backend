@@ -1,0 +1,183 @@
+❌ [681355ebc7cdaad6a3c5e0b7] Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops:
+   - Missing or invalid category
+❌ [681355ebc7cdaad6a3c5e0ba] Mens Casual Slim Fit:
+   - Missing or invalid category
+❌ [681355ebc7cdaad6a3c5e0bd] White Gold Plated Princess:
+   - Missing or invalid category
+❌ [681355ebc7cdaad6a3c5e0bf] WD 2TB Elements Portable External Hard Drive - USB 3.0:
+   - Missing or invalid category
+❌ [681355ebc7cdaad6a3c5e0c0] SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s:
+   - Missing or invalid category
+❌ [681355ebc7cdaad6a3c5e0b8] Mens Casual Premium Slim Fit T-Shirts:
+   - Missing or invalid category
+❌ [681355ebc7cdaad6a3c5e0bc] Solid Gold Petite Micropave:
+   - Missing or invalid category
+❌ [681355ebc7cdaad6a3c5e0be] Pierced Owl Rose Gold Plated Stainless Steel Double:
+   - Missing or invalid category
+❌ [681355ebc7cdaad6a3c5e0b9] Mens Cotton Jacket:
+   - Missing or invalid category
+❌ [681355ebc7cdaad6a3c5e0bb] John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet:
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9da7] Midea Refrigerator 449L 2D TMF MDRT645MTE06E Inverter Quattro, No Frost, Cooling Box, Multi-Air Flow, Active-C Fresh, Humidity Control Silver:
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9dab] Black & Decker DCM25N-B5 Coffee Maker, Black - 1 Cup:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9dad] Panasonic Powerful Steam/Dry Iron, 1800W, NI-M300TVTD- 1 Year Warranty:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9db0] TORNADO Gas Water Heater 6 Liter, Digital, Natural Gas, Silver GHM-C06CNE-S:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9dac] Black & Decker 1050W 2-Slice Stainless Steel Toaster, Silver/Black:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9daf] Fresh Wall fan 50 watts 18 inches with charger with 3 blades, black and white:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9da8] Zanussi Automatic Washing Machine, Silver, 8 KG - ZWF8240SX5r:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9da9] Midea Dishwasher - WQP13-5201C-S - 6 programs - Free standing - 13 Place set - Silver:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9dae] Fresh 1600W Faster Vacuum Cleaner with Bag, Black:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9db2] Black & Decker 1.7L Concealed Coil Stainless Steel Kettle, Jc450-B5, Silver:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9db3] BLACK & DECKER Dough Mixer With 1000W 3-Blade Motor And 4L Stainless Steel Mixer For 600G Dough Mixer 5.76 Kilograms White/Sliver:
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9da5] Koldair Water Dispenser Cold And Hot 2 Tabs - Bottom Load KWDB Silver Cooler:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9da6] Fresh Jumbo Stainless Steel Potato CB90:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9daa] deime Air Fryer 6.2 Quart, Large Air Fryer for Families, 5 Cooking Functions AirFryer, 400°F Temp Controls in 5° Increments, Ceramic Coated Nonstick:
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [68132a95ff7813b3d47f9db1] Black & Decker 500W 1.5L Blender with Grinder Mill, White - BX520-B5:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613c0] Apple iPhone 16 (128 GB):
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613c7] SHARP 4K Smart Frameless TV 55 Inch Built-In Receiver 4T-C55FL6EX:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613ca] Lenovo Legion 5 15ACH6 Gaming Laptop - Ryzen 5-5600H, 16 GB RAM, 512 GB SSD, NVIDIA GeForce RTX 3050 Ti 4GB GDDR6 Graphics, 15.6 FHD (1920x1080) IPS 120Hz, Backlit Keyboard, WIN 11:
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613cb] HP Victus Gaming Laptop 15-fb1004ne, CPU: Ryzen 5-7535HS, 16GB RAM,512GB SSD, Graphics Card: NVIDIA GeForce RTX 2050, VRAM: 4GB, Display: 15.6 FHD Antiglare IPS 250 nits 144Hz, Windows 11:
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613cc] HP OfficeJet Pro 9720 Wide Format All-in-One Printer - Print, Scan, Copy,Wireless, Auto Document Feeder, Auto Duplex, Touchscreen, Quiet Mode; Input Capacity of up to 250 sheets - [53N94C]:
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613c1] CANSHN Magnetic for iPhone 16 Pro Max Case Clear, Upgraded [Full Camera Protection] [Compatible with Magsafe] Non-Yellowing Protective Shockproof Bumper - Clear:
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613c3] Oraimo 18W USB Type-C Dual Output Super Fast Charger Wall Adapter QC3.0& PD3.0 & PE2.0 Compatible for iPhone 15/15 Plus/15 Pro/15 Pro Max, 14/13/12 Series, Galaxy, Pixel 4/3, iPad and More:
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613c6] Samsung 50 Inch TV Crystal Processor 4K LED - Titan Gray - UA50DU8000UXEG [2024 Model]:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613c8] LG UHD 4K TV 60 Inch UQ7900 Series, Cinema Screen Design 4K Active HDR WebOS Smart AI ThinQ - 60UQ79006LD (New):
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613c2] USB Cooling Pad Stand Fan Cooler for Laptop Notebook:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613c5] Xiaomi TV A 43 2025, 43, FHD, HDR, Cinematic Smart TV, 43-Inch Screen Size Google Assistant platform built-in receiver and Chromecast, metal finish Dolby Atoms 2 years local warranty:
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613be] Samsung Galaxy Tab A9 4G LTE, 8.7 Inch Android Tablet, 8GB RAM, 128GB Storage, 8MP Rear Camera, Navy-1 Year Warranty/Local Version:
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613bf] Xiaomi Redmi Pad SE WiFi FHD+ 90HZ refresh rate, Snapdragon 680 CPU, 8GB Ram+256GB ROM, Quad Speakers with Dolby Atmos, 8000mAh Bluetooth 5.3 8MP + Graphite Gray |1 year manufacturer warranty:
+   - Invalid or missing title
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613c4] Samsung 55 Inch QLED Smart TV Neural HDR Quantum Processor Lite 4K - QA55QE1DAUXEG [2024 Model]:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+❌ [6819e22b123a4faad16613c9] LENOVO ideapad slim3 15IRH8 -I5-13420H 8G-512SSD 83EM007LPS GREY:
+   - Missing slug
+   - Missing or short description
+   - Missing imageCover
+   - Missing or invalid category
+⚠️ Some products have issues, please fix them.
