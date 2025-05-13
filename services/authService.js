@@ -212,3 +212,24 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
   const token = createToken(user._id);
   res.status(200).json({ token });
 });
+
+
+exports.syncFirebaseUser = asyncHandler(async (req, res, next) => {
+  const { name, email, uid } = req.body;
+
+  let user = await User.findOne({ email });
+
+  if (!user) {
+    user = await User.create({
+      name,
+      email,
+      firebaseUid: uid,
+      password: crypto.randomBytes(16).toString("hex"),
+    });
+  }
+
+  const userObj = user.toObject();
+  delete userObj.password;
+
+  res.status(200).json({ data: userObj });
+});
