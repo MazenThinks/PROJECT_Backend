@@ -140,7 +140,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 
   await user.save();
   // 3- send the reset code via email
-  const message = `Hi ${user.name}, \n We received your request to reset your password on your E-shop Account. \n ${resetCode} Enter this code to complete your reset. \n Thanks for helping us to make your accoount secure. \n`;
+  const message = `Hi ${user.name}, \n We received your request to reset your password on your PickPay Account. \n ${resetCode} Enter this code to complete your reset. \n Thanks for helping us to make your accoount secure. \n PickPay sending their regards 🗡`;
 
   try {
     await sendEmail({
