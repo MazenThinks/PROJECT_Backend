@@ -30,6 +30,12 @@ const userSchema = new mongoose.Schema(
         passwordResetCode: String,
         passwordResetExpires: Date,
         passwordResetVerified: Boolean,
+         firebaseUid: {
+      type: String,
+      unique: true,
+      sparse: true,
+    },
+
         role: {
             type: String,
             enum: ['admin','manager', 'user'],
