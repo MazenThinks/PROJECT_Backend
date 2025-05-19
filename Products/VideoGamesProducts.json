@@ -1,0 +1,128 @@
+[
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e80"
+    },
+    "title": "PlayStation 5 Digital Console (Slim)",
+    "price": 27750,
+    "category": "Video Games",
+    "brand": "Sony"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e81"
+    },
+    "title": "Sony Ps4 500Gb Standalone Jet Black With One Dual Shock Controller (Ps4)",
+    "price": 19600,
+    "category": "Video Games",
+    "brand": "Sony"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e82"
+    },
+    "title": "PlayStation 5 Digital Edition Slim (Nordic)",
+    "price": 28799,
+    "category": "Video Games",
+    "brand": "Sony"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e83"
+    },
+    "title": "Nintendo Switch OLED Mario Red Edition Gaming Console",
+    "price": 16990,
+    "category": "Video Games",
+    "brand": "Nintendo"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e84"
+    },
+    "title": "Sony PlayStation 5 DualSense Wireless Controller",
+    "price": 4499,
+    "category": "Video Games",
+    "brand": "Sony"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e85"
+    },
+    "title": "PlayStation Sony DualSense wireless controller for PS5 White",
+    "price": 4536,
+    "category": "Video Games",
+    "brand": "Sony"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e86"
+    },
+    "title": "PlayStation 5 Dual Sense Wireless Controller Cosmic Red",
+    "price": 4498,
+    "category": "Video Games",
+    "brand": "Sony"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e87"
+    },
+    "title": "PlayStation 5 DualSense Edge Wireless Controller (UAE Version)",
+    "price": 16500,
+    "category": "Video Games",
+    "brand": "Sony"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e88"
+    },
+    "title": "Nintendo 160 2 Nintendo Switch Joy-Con Controllers (Pastel Purple/Pastel Green)",
+    "price": 4300,
+    "category": "Video Games",
+    "brand": "Nintendo"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e89"
+    },
+    "title": "Likorlove PS5 Controller Quick Charger, Dual USB Fast Charging Dock Station Stand for Playstation 5 DualSense Controllers Console with LED Indicator USB Type C Ports, White [2.5-3 Hours]",
+    "price": 576,
+    "category": "Video Games",
+    "brand": "Likorlove"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e8a"
+    },
+    "title": "OIVO PS5 Charging Station, 2H Fast PS5 Controller Charger for Playstation 5 Dualsense Controller, Upgrade PS5 Charging Dock with 2 Types of Cable, PS5 Charger for Dual PS5 Controller",
+    "price": 1200,
+    "category": "Video Games",
+    "brand": "OIVO"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e8b"
+    },
+    "title": "fanxiang S770 4TB NVMe M.2 SSD for PS5 - with Heatsink and DRAM, Up to 7300MB/s, PCIe 4.0, Suitable for Playstation 5 Memory Expansion, Game Enthusiasts, IT Professionals",
+    "price": 26200,
+    "category": "Video Games",
+    "brand": "fanxiang"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e8c"
+    },
+    "title": "Mcbazel PS5 Cooling Station and Charging Station, 3 Speed Fan, Controller Dock with LED Indicator and 11 Storage Discs - White(Not for PS5 Pro)",
+    "price": 1999,
+    "category": "Video Games",
+    "brand": "Mcbazel"
+  },
+  {
+    "_id": {
+      "$oid": "682b00a46977bd89257c0e8d"
+    },
+    "title": "EA SPORTS FC 25 Standard Edition PS5 | VideoGame | English",
+    "price": 2800,
+    "category": "Video Games",
+    "brand": "Sony"
+  }
+]

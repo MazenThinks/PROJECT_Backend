@@ -1,0 +1,182 @@
+[
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0e9d"
+    },
+    "title": "L’Oréal Paris Volume Million Lashes Panorama Mascara in Black, 9.9 ml",
+    "price": 443,
+    "category": "Beauty",
+    "brand": "L'Oréal Paris"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0e9e"
+    },
+    "title": "L’Oréal Paris L'Oréal Paris Infaillible 24H Matte Cover Foundation 200 Sable Dore - Oil Control, High Coverage​",
+    "price": 509,
+    "category": "Beauty",
+    "brand": "L'Oréal Paris"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0e9f"
+    },
+    "title": "Cybele Smooth N`Wear Powder Blush Corail 17 - 3.7gm",
+    "price": 189,
+    "category": "Beauty",
+    "brand": "Cybele"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0ea0"
+    },
+    "title": "Eva skin care cleansing & makeup remover facial wipes for normal/dry skin 20%",
+    "price": 62,
+    "category": "Beauty",
+    "brand": "Eva"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0ea1"
+    },
+    "title": "Maybelline New York Lifter Lip Gloss, 005 Petal",
+    "price": 430,
+    "category": "Beauty",
+    "brand": "Maybelline"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0ea2"
+    },
+    "title": "Care & More Soft Cream With Glycerin Mixed berries 75 ML",
+    "price": 27,
+    "category": "Beauty",
+    "brand": "Care & More"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0ea3"
+    },
+    "title": "La Roche-Posay Anthelios XL Non-perfumed Dry Touch oil control gel creamSPF50+ 50ml",
+    "price": 1168,
+    "category": "Beauty",
+    "brand": "La Roche-Posay"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0ea4"
+    },
+    "title": "Eva Aloe skin clinic anti-ageing collagen toner for firmed and refined skin - 200ml",
+    "price": 158,
+    "category": "Beauty",
+    "brand": "Eva"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0ea5"
+    },
+    "title": "Eucerin DermoPurifyer Oil Control Skin Renewal Treatment Face Serum for Blemish and Acne-Prone Skin with Hydroxy Complex, Unclogs Pores, Reduces Blemishes, Supports Skin Renewal, 40ml",
+    "price": 533,
+    "category": "Beauty",
+    "brand": "Eucerin"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0ea6"
+    },
+    "title": "L’Oréal Paris L'Oréal Paris Hyaluron Expert Eye Serum with 2.5% Hyaluronic Acid, Caffeine and Niacinamide - 20ml",
+    "price": 341,
+    "category": "Beauty",
+    "brand": "L'Oréal Paris"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0ea7"
+    },
+    "title": "L’Oréal Paris Elvive Hyaluron Pure Purifying Shampoo for Oily Hair 400ML",
+    "price": 142,
+    "category": "Beauty",
+    "brand": "L'Oréal Paris"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0ea8"
+    },
+    "title": "Raw African Booster Shea Set",
+    "price": 649,
+    "category": "Beauty",
+    "brand": "Raw African"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0ea9"
+    },
+    "title": "Garnier Color Naturals Permanent Crème Hair Color - 8.1 Light Ash Blonde",
+    "price": 131,
+    "category": "Beauty",
+    "brand": "Garnier"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0eaa"
+    },
+    "title": "L'Oreal Professionnel Absolut Repair 10-In-1 Hair Serum Oil for Damaged and Dry Hair - 90ml",
+    "price": 1214,
+    "category": "Beauty",
+    "brand": "L'Oréal Professionnel Paris"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0eab"
+    },
+    "title": "CORATED Heatless Curling Rod Headband, No Heat Silk Ribbon Rollers for Overnight Sleeping Curls, Styling Kit with Hair Clips and Scrunchie",
+    "price": 93,
+    "category": "Beauty",
+    "brand": "CORATED"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0eac"
+    },
+    "title": "Avon Far Away for Women, Floral Eau de Parfum 50 ML",
+    "price": 499,
+    "category": "Beauty",
+    "brand": "Avon"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0ead"
+    },
+    "title": "Memwa Coco Memwa Long Lasting Perfume Fragrance Luxury Eau De Parfum EDP Perfume for Women",
+    "price": 608,
+    "category": "Beauty",
+    "brand": "Gulf Orchid"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0eae"
+    },
+    "title": "Bath Body Gingham Gorgeous Fine Fragrance Mist, Size/Volume: 8 fl oz / 236 mL",
+    "price": 1350,
+    "category": "Beauty",
+    "brand": "9Street Corner"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0eaf"
+    },
+    "title": "NIVEA Antiperspirant Spray for Women, Pearl & Beauty Pearl Extracts, 150ml",
+    "price": 125,
+    "category": "Beauty",
+    "brand": "NIVEA"
+  },
+  {
+    "_id": {
+      "$oid": "682b00d16977bd89257c0eb0"
+    },
+    "title": "Jacques Bogart One Man Show for Men, Eau de Toilette - 100ml",
+    "price": 699,
+    "category": "Beauty",
+    "brand": "Jacques Bogar"
+  }
+]

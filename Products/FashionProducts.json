@@ -1,0 +1,137 @@
+[
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e8e"
+    },
+    "title": "Women's Chiffon Lining Batwing Sleeve",
+    "price": 850,
+    "category": "Fashion",
+    "brand": "Generic"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e8f"
+    },
+    "title": "Adidas womens ULTIMASHOW Shoes",
+    "price": 2600,
+    "category": "Fashion",
+    "brand": "Adidas"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e90"
+    },
+    "title": "American Eagle Womens Low-Rise Baggy Wide-Leg Jean",
+    "price": 2700,
+    "category": "Fashion",
+    "brand": "American Eagle"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e91"
+    },
+    "title": "Dejavu womens JAL-DJTF-058 Sandal",
+    "price": 1259,
+    "category": "Fashion",
+    "brand": "Dejavu"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e92"
+    },
+    "title": "Aldo Caraever Ladies Satchel Handbags, Khaki, Khaki",
+    "price": 5190,
+    "category": "Fashion",
+    "brand": "Aldo"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e93"
+    },
+    "title": "DeFacto Man Modern Fit Polo Neck Short Sleeve B6374AX Polo T-Shirt",
+    "price": 599,
+    "category": "Fashion",
+    "brand": "DeFacto"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e94"
+    },
+    "title": "DOTT JEANS WEAR Men's Relaxed Fit",
+    "price": 799,
+    "category": "Fashion",
+    "brand": "Generic"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e95"
+    },
+    "title": "Sport-Q®Fury-X Latest Model Football Shoes X Football Shoes Combining Comfort Precision and Performance Excellence in Game.",
+    "price": 319,
+    "category": "Fashion",
+    "brand": "Sport-QFury-X"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e96"
+    },
+    "title": "Timberland Ek Larchmont Ftm_Chelsea, Mens Boots",
+    "price": 10499,
+    "category": "Fashion",
+    "brand": "Timberland"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e97"
+    },
+    "title": "Timberland Men's Leather Passcase Trifold Wallet Hybrid, Brown/Black, One Size",
+    "price": 1399,
+    "category": "Fashion",
+    "brand": "Timberland"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e98"
+    },
+    "title": "LC WAIKIKI Crew Neck Girl's Shorts Pajama Set",
+    "price": 261,
+    "category": "Fashion",
+    "brand": "LC WAIKIKI"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e99"
+    },
+    "title": "Kidzo Boys Pajamas",
+    "price": 580,
+    "category": "Fashion",
+    "brand": "Generic"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e9a"
+    },
+    "title": "DeFacto Girls Cropped Fit Long Sleeve B9857A8 Denim Jacket",
+    "price": 899,
+    "category": "Fashion",
+    "brand": "DeFacto"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e9b"
+    },
+    "title": "Baby Boys Jacket Fashion Comfortable High Quality Plush Full Warmth Jacket for Your Baby",
+    "price": 425,
+    "category": "Fashion",
+    "brand": "Generic"
+  },
+  {
+    "_id": {
+      "$oid": "682b00c26977bd89257c0e9c"
+    },
+    "title": "MIX & MAX, Ballerina Shoes, girls, Ballet Flat",
+    "price": 354,
+    "category": "Fashion",
+    "brand": "MIX & MAX"
+  }
+]
