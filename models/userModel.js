@@ -21,11 +21,32 @@ const userSchema = new mongoose.Schema(
         phone: String,
         profileImg: String,
 
-        password: {
+        gender: {
             type: String,
-            required: [true, 'Password is required'],
-            minlength: [6, 'Too short password'],
+            enum: ['Male', 'Female', 'Other'],
+            trim: true
         },
+        dob: {
+            type: Date,
+            trim: true
+        },
+        age: {
+            type: Number,
+            min: [0, 'Age cannot be negative']
+        },
+        address: {
+            type: String,
+            trim: true
+        },
+
+        password: {
+         type: String,
+         required: function () {
+           return !this.firebaseUid;
+         },
+          minlength: [6, 'Too short password'],
+         },
+
         passwordChangedAt: Date,
         passwordResetCode: String,
         passwordResetExpires: Date,
