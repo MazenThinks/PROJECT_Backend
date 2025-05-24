@@ -1,4 +1,5 @@
 const express = require('express');
+const { uploadUserPhotoHandler } = require('../services/userService');
 const {
     getUserValidator,
     createUserValidator,
@@ -29,10 +30,24 @@ const authService = require('../services/authService');
 const router = express.Router();
 
 router.use(authService.protect);
+router.post(
+  '/uploadPhoto',
+  authService.allowedTo('user', 'admin', 'manager'), // allow all roles to upload profile photo
+  uploadUserImage,
+  resizeImage,
+  uploadUserPhotoHandler // or a new service handler like saveUploadedPhoto if needed
+);
 
+router.post('/check-image-exists', authService.allowedTo('user', 'admin', 'manager'), require('../services/userService').checkImageExists);
 router.get ("/getMe", getLoggedUserData, getUser);
 router.put ("/changeMyPassword", updateLoggedUserPassword);
-router.put ("/updateMe", updateLoggedUserValidator, updateLoggedUserData);
+router.put(
+  "/updateMe",
+  updateLoggedUserValidator,
+  uploadUserImage,    // multer middleware parses file and puts it in req.file
+  resizeImage,        // sharp middleware processes image and sets req.body.profileImg
+  updateLoggedUserData
+);
 router.put ("/deleteMe", deleteLoggedUserData);
 
 // Admin

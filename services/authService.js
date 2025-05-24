@@ -1,5 +1,4 @@
 const crypto = require("crypto");
-
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
@@ -9,28 +8,40 @@ const sendEmail = require("../utils/sendEmail");
 const createToken = require("../utils/createToken");
 
 const User = require("../models/userModel");
+const admin = require("../config/firebase");
+const { OAuth2Client } = require("google-auth-library");
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
-//@desc   signin
-//@route  GET /api/v1/auth/signin
+const isFirebaseToken = (token) => {
+  try {
+    const decodedPayload = JSON.parse(Buffer.from(token.split(".")[1], "base64").toString());
+    return decodedPayload.iss && decodedPayload.iss.includes("https://securetoken.google.com/");
+  } catch {
+    return false;
+  }
+};
+
+//@desc   signup
+//@route  GET /api/v1/auth/signup
 //@access Public
-
 exports.signup = asyncHandler(async (req, res, next) => {
   try {
-    console.log("Signup req.body:", req.body);
-    //1- create user
+    if (typeof req.body.password !== "string") {
+      return next(new ApiError("Password must be a string", 400));
+    }
+
     const user = await User.create({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });
-    // Remove password from user object before sending response
+
     const userObj = user.toObject();
     delete userObj.password;
-    //2- generate JWT token
+
     const token = createToken(user._id);
     res.status(201).json({ data: userObj, token });
   } catch (err) {
-    console.error("Signup error:", err);
     res.status(400).json({ message: err.message || "Signup failed" });
   }
 });
@@ -38,14 +49,13 @@ exports.signup = asyncHandler(async (req, res, next) => {
 //@desc   login
 //@route  GET /api/v1/auth/login
 //@access Public
-
 exports.login = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
   if (!user || !(await bcrypt.compare(req.body.password, user.password))) {
     return next(new ApiError("Incorrect email or password", 401));
   }
-  const token = createToken(user._id);
 
+  const token = createToken(user._id);
   const userObj = user.toObject();
   delete userObj.password;
 
@@ -54,135 +64,193 @@ exports.login = asyncHandler(async (req, res, next) => {
 
 //@desc make sure the user is logged in
 exports.protect = asyncHandler(async (req, res, next) => {
-  // 1- check if token exist, if exists get
   let token;
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
+  if (req.headers.authorization?.startsWith("Bearer ")) {
     token = req.headers.authorization.split(" ")[1];
   }
-  if (!token) {
-    return next(
-      new ApiError(
-        "You are not login, Please login to get access on this route",
-        401
-      )
-    );
-  }
 
-  // 2- verify token (no change happens, expired token)
-  const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+  if (!token) return next(new ApiError("You are not logged in", 401));
 
-  // 3- check if user exists
-  const currentUser = await User.findById(decoded.userId);
-  if (!currentUser) {
-    return next(new ApiError("User no longer exists", 401));
-  }
+  try {
+    // حاول أولاً تحقق التوكن كـ Firebase Token
+    const decodedFb = await admin.auth().verifyIdToken(token);
+    let user = await User.findOne({ firebaseUid: decodedFb.uid });
 
-  // 4- check if user changed password after token created
-  if (currentUser.passwordChangedAt) {
-    const passChangedTimestamp = parseInt(
-      currentUser.passwordChangedAt.getTime() / 1000,
-      10
-    );
-    // password changed after token created (Error)
-    if (passChangedTimestamp > decoded.iat) {
-      return next(
-        new ApiError(
-          "User recently changed his password, please login again",
-          401
-        )
-      );
+    if (!user) {
+      const existingUser = await User.findOne({ email: decodedFb.email });
+      if (existingUser) {
+        user = existingUser;
+      } else {
+        const randomPassword = crypto.randomBytes(16).toString("hex");
+
+        user = await User.create({
+          name: decodedFb.name || "Firebase User",
+          email: decodedFb.email,
+          firebaseUid: decodedFb.uid,
+          password: randomPassword,
+          role: 'user',
+          gender: req.body?.gender || null,
+          dob: req.body?.dob || null,
+          age: req.body?.age || null,
+          address: req.body?.address || null,
+          phone: req.body?.phone || null,
+          profileImg: req.body?.profileImg || null,
+        });
+      }
+    } else {
+      // حدث بيانات المستخدم لو أرسلت في req.body
+      user.name = decodedFb.name || user.name;
+      user.email = decodedFb.email || user.email;
+      user.firebaseUid = decodedFb.uid || user.firebaseUid;
+      user.gender = req.body?.gender || user.gender;
+      user.dob = req.body?.dob || user.dob;
+      user.age = req.body?.age || user.age;
+      user.address = req.body?.address || user.address;
+      user.phone = req.body?.phone || user.phone;
+      user.profileImg = req.body?.profileImg || user.profileImg;
+      user.role = user.role || 'user'; 
+      await user.save();
     }
+
+    req.user = user;
+    return next();
+  } catch (firebaseErr) {
+    console.log("Firebase token failed:", firebaseErr.message);
   }
 
-  req.user = currentUser;
-  next();
+  try {
+    // تحقق التوكن كـ Google ID Token
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    let user = await User.findOne({ email: payload.email });
+
+    if (!user) {
+      const randomPassword = crypto.randomBytes(16).toString("hex");
+
+      user = await User.create({
+        name: payload.name,
+        email: payload.email,
+        firebaseUid: payload.sub,
+        password: randomPassword,
+        role: 'user',
+        gender: req.body?.gender || null,
+        dob: req.body?.dob || null,
+        age: req.body?.age || null,
+        address: req.body?.address || null,
+        phone: req.body?.phone || null,
+        profileImg: req.body?.profileImg || null,
+      });
+    } else {
+      // حدث بيانات المستخدم لو أرسلت في req.body
+      user.name = payload.name || user.name;
+      user.firebaseUid = payload.sub || user.firebaseUid;
+      user.gender = req.body?.gender || user.gender;
+      user.dob = req.body?.dob || user.dob;
+      user.age = req.body?.age || user.age;
+      user.address = req.body?.address || user.address;
+      user.phone = req.body?.phone || user.phone;
+      user.profileImg = req.body?.profileImg || user.profileImg;
+      user.role = user.role || 'user'; 
+      await user.save();
+    }
+
+    req.user = user;
+    return next();
+  } catch (googleErr) {
+    console.log("Google token failed:", googleErr.message);
+  }
+
+  try {
+    // تحقق التوكن كـ JWT عادي
+    const decodedJwt = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const user = await User.findById(decodedJwt.userId);
+
+    if (!user) return next(new ApiError("User no longer exists", 401));
+
+    if (user.passwordChangedAt) {
+      const passChangedAt = parseInt(user.passwordChangedAt / 1000, 10);
+      if (passChangedAt > decodedJwt.iat) {
+        return next(new ApiError("Password changed, login again", 401));
+      }
+    }
+
+    req.user = user;
+    return next();
+  } catch (jwtErr) {
+    return next(new ApiError("Invalid or expired token", 401));
+  }
 });
+
 
 // [admin , manager]
 exports.allowedTo = (...roles) =>
   asyncHandler(async (req, res, next) => {
-    //1- acess roles
-    //2- access registered user (req.user.role)
     if (!roles.includes(req.user.role)) {
-      return next(
-        new ApiError("You are not allowed to access this route", 403)
-      );
+      return next(new ApiError("You are not allowed to access this route", 403));
     }
     next();
   });
 
-//@desc   forgetpassword
+//@desc   forgot password
 //@route  POST /api/v1/auth/forgotpassword
 //@access Public
 exports.forgotPassword = asyncHandler(async (req, res, next) => {
-  // 1- get user by email
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
-    return next(
-      new ApiError(`There is no user with that email ${req.body.email}`, 404)
-    );
+    return next(new ApiError(`There is no user with that email ${req.body.email}`, 404));
   }
-  // 2- if user exist, generate hash reset random 6 digitsand save it in db
-  const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
-  const hashedResetCode = crypto
-    .createHash("sha256")
-    .update(resetCode)
-    .digest("hex");
 
-  // save hashed password reset code into db
+  const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
+  const hashedResetCode = crypto.createHash("sha256").update(resetCode).digest("hex");
+
   user.passwordResetCode = hashedResetCode;
-  // add expirration time for password reset code (10 min)
   user.passwordResetExpires = Date.now() + 10 * 60 * 1000;
   user.passwordResetVerified = false;
 
   await user.save();
-  // 3- send the reset code via email
-  const message = `Hi ${user.name}, \n We received your request to reset your password on your PickPay Account. \n ${resetCode} Enter this code to complete your reset. \n Thanks for helping us to make your accoount secure. \n PickPay sending their regards 🗡`;
+
+  const message = `Hi ${user.name},\nYour password reset code is: ${resetCode}.\nThis code is valid for 10 minutes.\n`;
 
   try {
     await sendEmail({
       email: user.email,
-      subject: "Your password reset code valid for 10 min",
+      subject: "Your password reset code",
       message,
     });
   } catch (err) {
     user.passwordResetCode = undefined;
     user.passwordResetExpires = undefined;
     user.passwordResetVerified = undefined;
-
     await user.save();
-    return next(new ApiError("There is an error in sending email", 500));
+
+    return next(new ApiError("There was an error sending the email", 500));
   }
 
-  res
-    .status(200)
-    .json({ status: "Success", message: "Reset code sent to email" });
+  res.status(200).json({ status: "Success", message: "Reset code sent to email" });
 });
 
 //@desc   Verify password reset code
 //@route  POST /api/v1/auth/verifyResetCode
 //@access Public
 exports.verifyPassResetCode = asyncHandler(async (req, res, next) => {
-  // 1- get user based on reset code
-  const hashedResetCode = crypto
-    .createHash("sha256")
-    .update(req.body.resetCode)
-    .digest("hex");
+  const hashedResetCode = crypto.createHash("sha256").update(req.body.resetCode).digest("hex");
 
   const user = await User.findOne({
     passwordResetCode: hashedResetCode,
     passwordResetExpires: { $gt: Date.now() },
   });
+
   if (!user) {
     return next(new ApiError("Invalid or expired reset code", 400));
   }
 
-  // 2- reset code valid
   user.passwordResetVerified = true;
   await user.save();
+
   res.status(200).json({ status: "Success", message: "Reset code verified" });
 });
 
@@ -190,17 +258,15 @@ exports.verifyPassResetCode = asyncHandler(async (req, res, next) => {
 //@route  PUT /api/v1/auth/resetPassword
 //@access Public
 exports.resetPassword = asyncHandler(async (req, res, next) => {
-  //1- get user based on email
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
-    return next(
-      new ApiError(`There is no user with that email ${req.body.email}`, 404)
-    );
+    return next(new ApiError(`There is no user with that email ${req.body.email}`, 404));
   }
-  // 2- check if reset code verified
+
   if (!user.passwordResetVerified) {
     return next(new ApiError("Reset code is not verified", 400));
   }
+
   user.password = req.body.newPassword;
   user.passwordResetCode = undefined;
   user.passwordResetExpires = undefined;
@@ -208,24 +274,46 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
 
   await user.save();
 
-  // 3- if everything is ok, generate token
   const token = createToken(user._id);
   res.status(200).json({ token });
 });
 
-
+//@desc   sync firebase user if not in DB
+//@route  POST /api/v1/auth/syncFirebaseUser
+//@access Public
 exports.syncFirebaseUser = asyncHandler(async (req, res, next) => {
   const { name, email, uid } = req.body;
 
   let user = await User.findOne({ email });
 
   if (!user) {
+    const randomPassword = crypto.randomBytes(16).toString("hex");
+
     user = await User.create({
       name,
       email,
       firebaseUid: uid,
-      password: crypto.randomBytes(16).toString("hex"),
+      password: randomPassword,
+      role: "user",
+      gender: req.body.gender || null,
+      dob: req.body.dob || null,
+      age: req.body.age || null,
+      address: req.body.address || null,
+      phone: req.body.phone || null,
+      profileImg: req.body.profileImg || null,
     });
+  } else {
+    // تحديث بيانات المستخدم لو موجود
+    user.name = name || user.name;
+    user.firebaseUid = uid || user.firebaseUid;
+    user.gender = req.body.gender || user.gender;
+    user.dob = req.body.dob || user.dob;
+    user.age = req.body.age || user.age;
+    user.address = req.body.address || user.address;
+    user.phone = req.body.phone || user.phone;
+    user.profileImg = req.body.profileImg || user.profileImg;
+
+    await user.save();
   }
 
   const userObj = user.toObject();
