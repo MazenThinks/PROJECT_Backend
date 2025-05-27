@@ -13,7 +13,7 @@ const authService = require("../services/authService");
 const router = express.Router();
 
 // Protect all cart routes for authenticated users only
-router.use(authService.protect, authService.allowedTo("user"));
+router.use(authService.protect, authService.allowedTo('user', 'admin', 'manager'));
 
 router
   .route("/")

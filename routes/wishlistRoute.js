@@ -10,7 +10,7 @@ const {
 
 const router = express.Router();
 
-router.use(authService.protect, authService.allowedTo('user'));
+router.use(authService.protect, authService.allowedTo('user', 'admin', 'manager'));
 
 router.route("/")
 .post (addProductToWishlist)
