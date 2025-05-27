@@ -1,251 +1,260 @@
 [
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452cd" },
     "title": "Golden Life Sofa Bed - Size 190 cm - Beige",
-    "description": "Arm Style: Armless
-Style: Modern",
+    "description": "Arm Style: Armless Style: Modern",
     "quantity": 50,
     "sold": 10,
     "price": 7850,
     "priceAfterDiscount": 7850,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Generic",
     "ratingsAverage": 2.4,
     "ratingsQuantity": 3
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452ce" },
     "title": "Star Bags Bean Bag Chair - Purple, 95*95*97 cm, Unisex Adults",
     "description": "Modern design with reasonable space to ensure no space waste.",
     "quantity": 50,
     "sold": 10,
     "price": 1699,
     "priceAfterDiscount": 1699,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Generic",
     "ratingsAverage": 5.0,
     "ratingsQuantity": 1
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452cf" },
     "title": "Generic Coffee Table, Round, 71 cm x 45 cm, Black",
     "description": "Round",
     "quantity": 50,
     "sold": 10,
     "price": 3600,
     "priceAfterDiscount": 3600,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Generic",
     "ratingsAverage": 5.0,
     "ratingsQuantity": 1
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452d0" },
     "title": "Furgle Gocker Gaming Chair - Ergonomic 3D Swivel, One-Piece Steel Frame, Adjustable Tilt Angle, PU Leather, Gas Lift",
     "description": "Original design for professional gamers: Inspired by the sports seat, it creates a sense of space to focus on the game. Designed for all-day gaming or working, ergonomically designed for games. In addition, the PU leather offers you the feeling of texture as well as the best sitting experience. And combined with futuristic design and excellent function, suitable for any spike style.",
     "quantity": 50,
     "sold": 10,
     "price": 9696,
     "priceAfterDiscount": 9696,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Furgle",
     "ratingsAverage": 5.0,
     "ratingsQuantity": 1
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452d1" },
     "title": "Janssen Almany Innerspring Mattress Height 25 cm - 120 x 195 cm",
     "description": "Mattress height is: 24 cmCore: Bonnell springs.Anti-rust and anti-corrosion steel.Two layers of cotton felt.Two layers of cotton.Two layers of high quality sponge.Two layers of nonwoven fabric.High quality fabric.Four handles.Four ventilation valves for cooling.",
     "quantity": 50,
     "sold": 10,
     "price": 5120,
     "priceAfterDiscount": 5120,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Janssen",
     "ratingsAverage": 3.9,
     "ratingsQuantity": 58
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452d2" },
     "title": "Golden Lighting LED Gold Lampshade + 1 Crystal Cylinder Bulb.",
     "description": "Suitable for bedrooms and living rooms",
     "quantity": 50,
     "sold": 10,
     "price": 527,
     "priceAfterDiscount": 527,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Golden Lighting",
     "ratingsAverage": 3.9,
     "ratingsQuantity": 58
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452d3" },
     "title": "Luxury Bathroom Rug Shaggy Bath Mat 60 x 40 Cm, Washable Non Slip Bath Rugs for Bathroom Shower, Soft Plush Chenille Absorbent Carpets Mats, Gray (Small 60×40)",
     "description": "Soft large size bath mat: Our 60 x 40 Cm bath mat features ultra-soft chenille fabric, which is offers exceptional comfort and support. The material’s ability to absorb water and collect dust is quite amazing, making it ideal for drying feet when stepping out of the shower, and effective at wiping off dirt and dust from shoes as a front entrance floor mat. You won’t regret investing in chenille mats for your home.",
     "quantity": 50,
     "sold": 10,
     "price": 355,
     "priceAfterDiscount": 355,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Generic",
-    "ratingsAverage":4.1,
+    "ratingsAverage": 4.1,
     "ratingsQuantity": 4
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452d4" },
     "title": "glass vase 15cm",
-    "description": "Occasion type: Christmas
-Material: Glass
-Installation type: Tabletop",
+    "description": "Occasion type: Christmas Material: Glass Installation type: Tabletop",
     "quantity": 50,
     "sold": 10,
     "price": 250,
     "priceAfterDiscount": 250,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Generic",
     "ratingsAverage": 2.8,
     "ratingsQuantity": 9
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452d5" },
     "title": "Amotpo Indoor/Outdoor Wall Clock,12-Inch Waterproof Clock with Thermometer and Hygrometer Combo,Battery Operated Quality Quartz Round Clock,Silver",
     "description": "Analog Thermometer & Humidity Combo:Indoor/outdoor clock has built-in Analog hygrometer & thermometer combo. Automatically measures accurate temperature degree from -30℉ to 130℉(-30℃ to 50℃), humidity readings from 0% to 100% RH.",
     "quantity": 50,
     "sold": 10,
     "price": 549,
     "priceAfterDiscount": 549,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Amotpo",
     "ratingsAverage": 4.2,
     "ratingsQuantity": 919
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452d6" },
     "title": "oliruim Black Home Decor Accent Art Woman face Statue Collectible Statue for Modern Home Living Room Bookshelf Black Desk Decor 2 Pieces Set",
     "description": "Design Concept: Art comes from life, each different pattern design comes from the artisan's careful observation of life. Abstract art design, clear layers, simple and clear lines, strong three-dimensional sense, strong texture, it all has a good charm, and is a good choice to enhance the taste of home decoration",
     "quantity": 50,
-    "sold":10,
+    "sold": 10,
     "price": 400,
     "priceAfterDiscount": 400,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "oliruim",
     "ratingsAverage": 4.3,
     "ratingsQuantity": 43
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452d7" },
     "title": "Neoflam Pote Cookware Set 11-Pieces, Pink Marble",
     "description": "This cookware ensures your daily cooking is always safer and healthier",
     "quantity": 50,
     "sold": 10,
     "price": 15999,
     "priceAfterDiscount": 15999,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Neoflam",
     "ratingsAverage": 4.3,
     "ratingsQuantity": 43
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452d8" },
     "title": "Pasabahce Set of 6 Large Mug with Handle -340ml Turkey Made",
-    "description": "Dishwasher proof : Yes
-Type : Drinkware Set
-Material : Glass
-Microwave Proof : Yes",
+    "description": "Dishwasher proof : Yes Type : Drinkware Set Material : Glass Microwave Proof : Yes",
     "quantity": 50,
     "sold": 10,
     "price": 495,
     "priceAfterDiscount": 495,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Pasabahce",
     "ratingsAverage": 4.5,
     "ratingsQuantity": 12
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452d9" },
     "title": "P&P CHEF 13½ Inch Pizza Pan Set, 3 Pack Nonstick Pizza Pans, Round Pizza Tray Bakeware for Oven Baking, Stainless Steel Core & Easy to Clean, Non Toxic & Durable, Black",
     "description": "NON-TOXIC & STURDY P&P CHEF pizza pans are made from premium stainless steel core with food-grade coatings, which will not leech any harmful substances into the food at any temperatures, Giving you a healthier baking, Stainless steel core have strong structure to ensure long-term use, Differ from wooden and aluminum pans, Get rid of crack and rust",
     "quantity": 50,
     "sold": 10,
-    "price":276 ,
+    "price": 276,
     "priceAfterDiscount": 276,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "P&P CHEF",
     "ratingsAverage": 4.5,
     "ratingsQuantity": 275
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452da" },
     "title": "LIANYU 20 Piece Silverware Flatware Cutlery Set, Stainless Steel Utensils Service for 4, Include Knife Fork Spoon, Mirror Polished, Dishwasher Safe",
     "description": "Include 20 piece utensils, consist of 4 dinner knives, 4 dinner forks, 4 dinner spoons, 4 salad forks, 4 tea spoons",
     "quantity": 50,
     "sold": 10,
     "price": 1099,
     "priceAfterDiscount": 1099,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "LIANYU",
     "ratingsAverage": 4.7,
     "ratingsQuantity": 100
   },
-    {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452db" },
     "title": "Dish Rack Dish Drying Stand Dish Drainer Plate Rack Dish rake Kitchen Organizer Dish Drying Rack Countertop Large Antibacterial Kitchen Utensils Dish racks Dish Stand (STYLE A)",
     "description": "RUST PROOF HIGH QUALITY --- This dish rack is made of premium quality material which has excellent resistance to rust. Better than most kitchen utensil holder in the market the side has plastic cup holder and drainer tray board. High quality material also sturdy enough for kitchen storage",
     "quantity": 50,
     "sold": 10,
     "price": 399,
     "priceAfterDiscount": 399,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "S2C",
     "ratingsAverage": 3.8,
     "ratingsQuantity": 476
   },
-      {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452dc" },
     "title": "Banotex Cotton Towel 50x100 (Sugar)",
-    "description": "100% Cotton
-High Water Absorption
-High Color Fastness
-Chic Bath Towel
-Made in Egypt",
+    "description": "100% Cotton High Water Absorption High Color Fastness Chic Bath Towel Made in Egypt",
     "quantity": 50,
     "sold": 10,
     "price": 200,
     "priceAfterDiscount": 200,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Banotex",
     "ratingsAverage": 4.4,
     "ratingsQuantity": 9
   },
-      {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452dd" },
     "title": "Fiber pillow 2 pieces size 40x60",
-    "description": "Height : 40 centimeters
-Width :60 centimeters",
+    "description": "Height : 40 centimeters Width :60 centimeters",
     "quantity": 50,
     "sold": 10,
     "price": 185,
     "priceAfterDiscount": 185,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Generic",
     "ratingsAverage": 3.5,
     "ratingsQuantity": 257
   },
-      {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452de" },
     "title": "Bedsure 100% Cotton Blankets Queen Size for Bed - Waffle Weave Blankets for Summer, Lightweight and Breathable Soft Woven Blankets for Spring, Mint, 90x90 Inches",
     "description": "Soft, Breathable & Stylish: Made from 100% cotton, this pre-washed throw blanket features a gentle hand feel that gets even softer after washing. The anti-static fabric offers exceptional breathability and moisture absorption for a cozy and dry night's sleep all year round.",
     "quantity": 50,
     "sold": 10,
     "price": 604,
     "priceAfterDiscount": 604,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Bedsure",
     "ratingsAverage": 4.4,
     "ratingsQuantity": 186
   },
-      {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452df" },
     "title": "Home of linen-fitted sheet set, size 120 * 200cm,off white",
     "description": "Luxury Blended cotton by home of linens",
     "quantity": 50,
     "sold": 10,
     "price": 370,
     "priceAfterDiscount": 370,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Home of Linen",
     "ratingsAverage": 3.8,
     "ratingsQuantity": 48
   },
-      {
+  {
+    "_id": { "$oid": "681dab0df9c9147444b452e0" },
     "title": "Home of Linen - Duvet Cover Set - 3 Pieces for Double Bed - 1 Duvet Cover (185cm*235cm) + 2 Pillow Cases (50cm*70cm) - 100% Egyptian Cotton - Zebra - 802",
     "description": "1 Duvet Cover (185cm*235cm) + 2 Pillow Cases (50cm*70cm)",
     "quantity": 50,
     "sold": 10,
     "price": 948,
     "priceAfterDiscount": 948,
-    "category": "",
+    "category": "68252916a68b49cb061641ea",
     "brand": "Home of Linen",
     "ratingsAverage": 3.8,
     "ratingsQuantity": 48
