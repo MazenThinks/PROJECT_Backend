@@ -1,10 +1,10 @@
-const Product = require('../models/productModel');
-require('../models/categoryModel');
+const Product = require("../models/productModel");
+require("../models/categoryModel");
 
-const OpenAI = require('openai');
-require('dotenv').config({ path: './config.env' });
+const OpenAI = require("openai");
+require("dotenv").config({ path: "./config.env" });
 
-require('../config/database');
+require("../config/database");
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -12,12 +12,12 @@ const openai = new OpenAI({
 
 const addEmbeddingsToProducts = async () => {
   try {
-    console.log(' Starting the embedding process...');
+    console.log(" Starting the embedding process...");
 
     const products = await Product.find({ embedding: { $exists: false } });
 
     if (products.length === 0) {
-      console.log(' No products need embedding.');
+      console.log(" No products need embedding.");
       return;
     }
 
@@ -27,8 +27,8 @@ const addEmbeddingsToProducts = async () => {
 
     for (const product of products) {
       const response = await openai.embeddings.create({
-        model: 'text-embedding-ada-002',
-        input: product.title,
+        model: "text-embedding-ada-002",
+        input: `${product.title} ${product.description || ""}`,
       });
 
       if (response.data && response.data[0] && response.data[0].embedding) {
@@ -49,12 +49,12 @@ const addEmbeddingsToProducts = async () => {
 
     if (bulkOperations.length > 0) {
       await Product.bulkWrite(bulkOperations);
-      console.log(' All products updated successfully with embeddings!');
+      console.log(" All products updated successfully with embeddings!");
     } else {
-      console.log(' No embeddings were generated.');
+      console.log(" No embeddings were generated.");
     }
   } catch (err) {
-    console.error(' Error during embedding:', err);
+    console.error(" Error during embedding:", err);
   }
 };
 
