@@ -26,13 +26,13 @@ const { searchProductsAI } = require("../controllers/productController");
 
 const router = express.Router();
 
-// 💬 اول حاجة: Route بتاع البحث بالذكاء الاصطناعي
+//  اول حاجة: Route بتاع البحث بالذكاء الاصطناعي
 router.post("/search", searchProductsAI);
 
-// 💬 Sub-Routes: Reviews
+//  Sub-Routes: Reviews
 router.use("/:productId/reviews", reviewsRoute);
 
-// 💬 CRUD routes
+//  CRUD routes
 router
   .route("/")
   .get(factory.getAll(Product, "Products"))
