@@ -14,31 +14,32 @@ console.log("Config exists:", fs.existsSync(configPath));
 dotenv.config({ path: configPath });
 console.log("Loaded DB_URI:", process.env.DB_URI);
 
+//  IMPORTS
 const ApiError = require("./utils/apiError");
 const golbaleError = require("./middlewares/errorMiddleware");
 const dbConnection = require("./config/database");
-// Routes
-const mountRoutes = require("./routes");
-//const { webhookCheckout } = require('./services/orderService');
 
-//connect with db
+//  Routes (بما فيها Voice Search)
+const mountRoutes = require("./routes");
+// const { webhookCheckout } = require("./services/orderService");
+
+//  Connect to DB
 dbConnection();
 
-//Express app
+//  Initialize app
 const app = express();
 
-//Enable other domains to access tour application
+//  CORS
 app.use(cors());
 app.options("*", cors());
 
-//compress all responses
+//  Compression
 app.use(compression());
 
-///Checkout webhook
-//app.post('/webhook-checkout',express.raw({ type: 'application/json' }),
-//webhookCheckout )
+//  Webhook 
+// app.post('/webhook-checkout', express.raw({ type: 'application/json' }), webhookCheckout);
 
-//Middlewares
+//  Middleware
 app.use(express.json({ limit: "20kb" }));
 app.use(express.static(path.join(__dirname, "uploads")));
 
@@ -50,37 +51,36 @@ if (process.env.NODE_ENV === "development") {
   console.log(`mode: ${process.env.NODE_ENV}`);
 }
 
-// Limit each IP to 100 requests per `window` (here, per 15 minutes)
+//  Rate Limit
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
+  windowMs: 15 * 60 * 1000, // 15 min
   max: 100,
-  message:
-    "Too many accounts created from this IP, please try again after an hour",
+  message: "Too many accounts created from this IP, please try again after an hour",
 });
-
-// Apply the rate limiting middlewareto all requests
 app.use("/api", limiter);
 
-// Mount Routs
+//  Mount routes (Voice Search مشمولة في routes/index.js)
 mountRoutes(app);
 
+//  404 Handler
 app.all("*", (req, res, next) => {
   next(new ApiError(`Cant find this route: ${req.originalUrl}`, 400));
 });
 
-//Global error handling middleware
+//  Global Error Handler
 app.use(golbaleError);
 
+//  Start Server
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`App Running On Port ${PORT}`);
 });
 
-// Handle rejections outside express
+//  Unhandled Promise Rejection
 process.on("unhandledRejection", (err) => {
   console.error(`UnhandledRejection Errors: ${err.name} | ${err.message}`);
   server.close(() => {
-    console.error(`Shutting down....`);
+    console.error("Shutting down....");
     process.exit(1);
   });
 });
