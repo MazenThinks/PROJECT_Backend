@@ -20,6 +20,21 @@ const isFirebaseToken = (token) => {
     return false;
   }
 };
+const isGoogleIdToken = (token) => {
+  try {
+    const [headerB64, payloadB64] = token.split(".");
+    const header = JSON.parse(Buffer.from(headerB64, "base64").toString());
+    const payload = JSON.parse(Buffer.from(payloadB64, "base64").toString());
+
+    return (
+      header.kid && // يجب أن يحتوي على kid لتوقيع Google
+      payload.aud === process.env.GOOGLE_CLIENT_ID
+    );
+  } catch {
+    return false;
+  }
+};
+
 
 //@desc   signup
 //@route  GET /api/v1/auth/signup
@@ -72,21 +87,67 @@ exports.protect = asyncHandler(async (req, res, next) => {
   if (!token) return next(new ApiError("You are not logged in", 401));
 
   try {
-    // حاول أولاً تحقق التوكن كـ Firebase Token
-    const decodedFb = await admin.auth().verifyIdToken(token);
-    let user = await User.findOne({ firebaseUid: decodedFb.uid });
+    if (isFirebaseToken(token)) {
+      const decodedFb = await admin.auth().verifyIdToken(token);
+      let user = await User.findOne({ firebaseUid: decodedFb.uid });
 
-    if (!user) {
-      const existingUser = await User.findOne({ email: decodedFb.email });
-      if (existingUser) {
-        user = existingUser;
+      if (!user) {
+        const existingUser = await User.findOne({ email: decodedFb.email });
+        if (existingUser) {
+          user = existingUser;
+        } else {
+          const randomPassword = crypto.randomBytes(16).toString("hex");
+          user = await User.create({
+            name: decodedFb.name || "Firebase User",
+            email: decodedFb.email,
+            firebaseUid: decodedFb.uid,
+            password: randomPassword,
+            role: 'user',
+            gender: req.body?.gender || null,
+            dob: req.body?.dob || null,
+            age: req.body?.age || null,
+            address: req.body?.address || null,
+            phone: req.body?.phone || null,
+            profileImg: req.body?.profileImg || null,
+          });
+        }
       } else {
-        const randomPassword = crypto.randomBytes(16).toString("hex");
+        user.name = decodedFb.name || user.name;
+        user.email = decodedFb.email || user.email;
+        user.firebaseUid = decodedFb.uid || user.firebaseUid;
+        user.gender = req.body?.gender || user.gender;
+        user.dob = req.body?.dob || user.dob;
+        user.age = req.body?.age || user.age;
+        user.address = req.body?.address || user.address;
+        user.phone = req.body?.phone || user.phone;
+        user.profileImg = req.body?.profileImg || user.profileImg;
+        user.role = user.role || 'user';
+        await user.save();
+      }
 
+      req.user = user;
+      return next();
+    }
+  } catch (firebaseErr) {
+    console.log("Firebase token failed:", firebaseErr.message);
+  }
+
+  try {
+    if (isGoogleIdToken(token)) {
+      const ticket = await client.verifyIdToken({
+        idToken: token,
+        audience: process.env.GOOGLE_CLIENT_ID,
+      });
+
+      const payload = ticket.getPayload();
+      let user = await User.findOne({ email: payload.email });
+
+      if (!user) {
+        const randomPassword = crypto.randomBytes(16).toString("hex");
         user = await User.create({
-          name: decodedFb.name || "Firebase User",
-          email: decodedFb.email,
-          firebaseUid: decodedFb.uid,
+          name: payload.name,
+          email: payload.email,
+          firebaseUid: payload.sub,
           password: randomPassword,
           role: 'user',
           gender: req.body?.gender || null,
@@ -96,76 +157,28 @@ exports.protect = asyncHandler(async (req, res, next) => {
           phone: req.body?.phone || null,
           profileImg: req.body?.profileImg || null,
         });
+      } else {
+        user.name = payload.name || user.name;
+        user.firebaseUid = payload.sub || user.firebaseUid;
+        user.gender = req.body?.gender || user.gender;
+        user.dob = req.body?.dob || user.dob;
+        user.age = req.body?.age || user.age;
+        user.address = req.body?.address || user.address;
+        user.phone = req.body?.phone || user.phone;
+        user.profileImg = req.body?.profileImg || user.profileImg;
+        user.role = user.role || 'user';
+        await user.save();
       }
-    } else {
-      // حدث بيانات المستخدم لو أرسلت في req.body
-      user.name = decodedFb.name || user.name;
-      user.email = decodedFb.email || user.email;
-      user.firebaseUid = decodedFb.uid || user.firebaseUid;
-      user.gender = req.body?.gender || user.gender;
-      user.dob = req.body?.dob || user.dob;
-      user.age = req.body?.age || user.age;
-      user.address = req.body?.address || user.address;
-      user.phone = req.body?.phone || user.phone;
-      user.profileImg = req.body?.profileImg || user.profileImg;
-      user.role = user.role || 'user'; 
-      await user.save();
+
+      req.user = user;
+      return next();
     }
-
-    req.user = user;
-    return next();
-  } catch (firebaseErr) {
-    console.log("Firebase token failed:", firebaseErr.message);
-  }
-
-  try {
-    // تحقق التوكن كـ Google ID Token
-    const ticket = await client.verifyIdToken({
-      idToken: token,
-      audience: process.env.GOOGLE_CLIENT_ID,
-    });
-
-    const payload = ticket.getPayload();
-    let user = await User.findOne({ email: payload.email });
-
-    if (!user) {
-      const randomPassword = crypto.randomBytes(16).toString("hex");
-
-      user = await User.create({
-        name: payload.name,
-        email: payload.email,
-        firebaseUid: payload.sub,
-        password: randomPassword,
-        role: 'user',
-        gender: req.body?.gender || null,
-        dob: req.body?.dob || null,
-        age: req.body?.age || null,
-        address: req.body?.address || null,
-        phone: req.body?.phone || null,
-        profileImg: req.body?.profileImg || null,
-      });
-    } else {
-      // حدث بيانات المستخدم لو أرسلت في req.body
-      user.name = payload.name || user.name;
-      user.firebaseUid = payload.sub || user.firebaseUid;
-      user.gender = req.body?.gender || user.gender;
-      user.dob = req.body?.dob || user.dob;
-      user.age = req.body?.age || user.age;
-      user.address = req.body?.address || user.address;
-      user.phone = req.body?.phone || user.phone;
-      user.profileImg = req.body?.profileImg || user.profileImg;
-      user.role = user.role || 'user'; 
-      await user.save();
-    }
-
-    req.user = user;
-    return next();
   } catch (googleErr) {
     console.log("Google token failed:", googleErr.message);
   }
 
   try {
-    // تحقق التوكن كـ JWT عادي
+    // JWT التقليدي (backend)
     const decodedJwt = jwt.verify(token, process.env.JWT_SECRET_KEY);
     const user = await User.findById(decodedJwt.userId);
 
