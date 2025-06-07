@@ -38,7 +38,7 @@ router
   .get(factory.getAll(Product, "Products"))
   .post(
     authService.protect,
-    authService.allowedTo("admin", "manager"),
+    authService.allowedTo("admin", "manager", "seller"),
     uploadProductImages,
     resizeProductImages,
     createProductValidator,
