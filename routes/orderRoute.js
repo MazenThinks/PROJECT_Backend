@@ -32,7 +32,7 @@ router.put('/:id/pay',
   authService.allowedTo('admin', 'manager'),
   updateOrderToPaid);
 router.put('/:id/deliver',
-  authService.allowedTo('admin', 'manager'),
+  authService.allowedTo('admin', 'manager', 'user'),
   updateOrderToDelivered);
 
 module.exports = router;
