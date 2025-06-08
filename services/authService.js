@@ -6,6 +6,7 @@ const asyncHandler = require("express-async-handler");
 const ApiError = require("../utils/apiError");
 const sendEmail = require("../utils/sendEmail");
 const createToken = require("../utils/createToken");
+const { sanitizeUser } = require("../utils/sanitizeData")
 
 const User = require("../models/userModel");
 const admin = require("../config/firebase");
@@ -51,11 +52,8 @@ exports.signup = asyncHandler(async (req, res, next) => {
       password: req.body.password,
     });
 
-    const userObj = user.toObject();
-    delete userObj.password;
-
     const token = createToken(user._id);
-    res.status(201).json({ data: userObj, token });
+    res.status(201).json({ data: sanitizeUser(user), token });
   } catch (err) {
     res.status(400).json({ message: err.message || "Signup failed" });
   }
@@ -71,10 +69,8 @@ exports.login = asyncHandler(async (req, res, next) => {
   }
 
   const token = createToken(user._id);
-  const userObj = user.toObject();
-  delete userObj.password;
 
-  res.status(200).json({ data: userObj, token });
+  res.status(200).json({ data: sanitizeUser(user), token });
 });
 
 //@desc make sure the user is logged in
