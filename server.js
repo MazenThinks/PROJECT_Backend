@@ -7,6 +7,9 @@ const morgan = require("morgan");
 const cors = require("cors");
 const compression = require("compression");
 const rateLimit = require("express-rate-limit");
+const hpp = require("hpp");
+const mongoSanitize = require("express-mongo-sanitize");
+const xss = require("xss-clean");
 
 const configPath = path.join(__dirname, "config.env");
 console.log("Config path:", configPath);
@@ -51,13 +54,31 @@ if (process.env.NODE_ENV === "development") {
   console.log(`mode: ${process.env.NODE_ENV}`);
 }
 
+// To apply data sanitization
+app.use(mongoSanitize());
+app.use(xss());
+
 //  Rate Limit
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 min
   max: 100,
   message: "Too many accounts created from this IP, please try again after an hour",
 });
+// Apply rate limiting middleware to all requests
 app.use("/api", limiter);
+
+// Middleware to protect against HTTP Parameter Pollution attacks
+app.use(
+  hpp({
+  whitelist: [
+    'price',
+    'sold',
+    'quantity',
+    'ratingsAverage',
+    'ratingsQuantity',
+  ],
+})
+);
 
 //  Mount routes (Voice Search مشمولة في routes/index.js)
 mountRoutes(app);
