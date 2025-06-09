@@ -43,7 +43,7 @@ reviewSchema.statics.calcAverageRatingsAndQuantity = async function (
       // Stage 2: Grouping reviews based on productID and calc avgRatings, ratingsQuantity
     {
         $group: {
-        _id: 'product',
+        _id: '$product',
         avgRatings: { $avg: '$ratings' },
         ratingsQuantity: { $sum: 1 },
         },

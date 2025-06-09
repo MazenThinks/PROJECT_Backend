@@ -58,7 +58,8 @@ exports.getOne = (Model, populationOpt) =>
 exports.getAll = (Model, modelName) => async (req, res, next) => {
   try {
     const countDocuments = await Model.countDocuments();
-    let features = new ApiFeatures(Model.find(), req.query)
+    const filter = req.filterObj || {};
+    let features = new ApiFeatures(Model.find(filter), req.query)
       .search(modelName)
       .filter()
       .sort()
