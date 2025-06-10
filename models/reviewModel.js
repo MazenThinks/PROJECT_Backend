@@ -6,6 +6,10 @@ const reviewSchema = new mongoose.Schema(
     title: {
     type: String,
     },
+    content: {
+    type: String,
+    required: [true, 'Review content is required'],
+    },
     ratings: {
     type: Number,
     min: [1, 'Min ratings value is 1.0'],
@@ -73,4 +77,4 @@ reviewSchema.post('remove', async function () {
 });
 
 
-module.exports = mongoose.model('Review', reviewSchema); 
+module.exports = mongoose.model('Review', reviewSchema);
