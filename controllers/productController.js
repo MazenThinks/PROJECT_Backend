@@ -11,15 +11,13 @@ const openai = new OpenAI({
 // AI Search Controller
 exports.searchProductsAI = async (req, res) => {
   try {
-    const { query } = req.body; // ✅ هنا التعديل علشان يقرأ من body بدل query params
+    const { query } = req.body;
 
     if (!query) {
-      return res
-        .status(400)
-        .json({ message: "You must provide a search query." });
+      return res.status(400).json({ message: "You must provide a search query." });
     }
 
-    // Get embedding for the search query
+    // First, try using AI search
     const response = await openai.embeddings.create({
       model: "text-embedding-ada-002",
       input: query,
@@ -27,26 +25,38 @@ exports.searchProductsAI = async (req, res) => {
 
     const queryEmbedding = response.data[0].embedding;
 
-    // Get all products with embeddings
-    const products = await Product.find({
+    // Load products with embeddings
+    let products = await Product.find({
       embedding: { $exists: true, $ne: [] },
     });
 
-    // Calculate Cosine Similarity
+    // If no products with embeddings exist, fallback to regex search
+    if (products.length === 0) {
+      const regex = new RegExp(query, "i");
+
+      const fallbackResults = await Product.find({
+        $or: [
+          { title: { $regex: regex } },
+          { name: { $regex: regex } },
+          { description: { $regex: regex } },
+        ],
+      });
+
+      return res.json({
+        results: fallbackResults.length,
+        products: fallbackResults,
+      });
+    }
+
+    // Cosine similarity
     const cosineSimilarity = (vecA, vecB) => {
       const dotProduct = vecA.reduce((acc, val, i) => acc + val * vecB[i], 0);
-      const magnitudeA = Math.sqrt(
-        vecA.reduce((acc, val) => acc + val * val, 0)
-      );
-      const magnitudeB = Math.sqrt(
-        vecB.reduce((acc, val) => acc + val * val, 0)
-      );
+      const magnitudeA = Math.sqrt(vecA.reduce((acc, val) => acc + val * val, 0));
+      const magnitudeB = Math.sqrt(vecB.reduce((acc, val) => acc + val * val, 0));
       return dotProduct / (magnitudeA * magnitudeB);
     };
 
-    // Use both title and description for embedding (if available)
     const scoredProducts = products.map((product) => {
-      // If you want to re-embed, you can do it here, but for now use stored embedding
       const score = cosineSimilarity(queryEmbedding, product.embedding);
       return {
         product,
@@ -56,7 +66,6 @@ exports.searchProductsAI = async (req, res) => {
 
     scoredProducts.sort((a, b) => b.score - a.score);
 
-    // Return both product and score
     const topProducts = scoredProducts.slice(0, 10).map((item) => ({
       ...item.product.toObject(),
       _score: item.score,
