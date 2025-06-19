@@ -9,6 +9,8 @@ const openai = new OpenAI({
 });
 
 // AI Search Controller
+const { translate } = require("../helpers/translate");
+
 exports.searchProductsAI = async (req, res) => {
   try {
     const { query } = req.body;
@@ -17,30 +19,37 @@ exports.searchProductsAI = async (req, res) => {
       return res.status(400).json({ message: "You must provide a search query." });
     }
 
-    // First, try using AI search
+    // ترجم نص البحث للعربية إلى إنجليزية
+    const translatedQuery = await translate(query);
+    console.log("Translated Query:", translatedQuery);
+
+    // إنشاء embedding على النص المترجم
     const response = await openai.embeddings.create({
       model: "text-embedding-ada-002",
-      input: query,
+      input: translatedQuery,
     });
 
     const queryEmbedding = response.data[0].embedding;
 
-    // Load products with embeddings
+    // باقي الكود كما هو:
     let products = await Product.find({
       embedding: { $exists: true, $ne: [] },
     });
 
-    // If no products with embeddings exist, fallback to regex search
     if (products.length === 0) {
-      const regex = new RegExp(query, "i");
+  const originalRegex = new RegExp(query, "i");
+  const translatedRegex = new RegExp(translatedQuery, "i");
 
       const fallbackResults = await Product.find({
         $or: [
-          { title: { $regex: regex } },
-          { name: { $regex: regex } },
-          { description: { $regex: regex } },
+          { title: { $regex: originalRegex } },
+          { name: { $regex: originalRegex } },
+          { description: { $regex: originalRegex } },
+          { title: { $regex: translatedRegex } },
+          { name: { $regex: translatedRegex } },
+          { description: { $regex: translatedRegex } },
         ],
-      });
+      }).collation({ locale: "ar", strength: 1 });
 
       return res.json({
         results: fallbackResults.length,
@@ -48,7 +57,7 @@ exports.searchProductsAI = async (req, res) => {
       });
     }
 
-    // Cosine similarity
+    // حساب التشابه
     const cosineSimilarity = (vecA, vecB) => {
       const dotProduct = vecA.reduce((acc, val, i) => acc + val * vecB[i], 0);
       const magnitudeA = Math.sqrt(vecA.reduce((acc, val) => acc + val * val, 0));
